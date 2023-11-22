@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'app_satoc.apps.AppSatocConfig',
     'smart_selects',
-    'app_satoc',
 ]
 
 MIDDLEWARE = [

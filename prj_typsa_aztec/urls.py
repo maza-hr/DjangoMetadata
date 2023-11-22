@@ -4,8 +4,8 @@ from app_satoc.views import index
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', index, name='index'),
     path('metadata/', include('app_satoc.urls')),
+    path('', index, name='index'),
     re_path(r'^chaining/', include('smart_selects.urls')),
 
 ]

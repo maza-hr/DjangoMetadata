@@ -1,0 +1,84 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata</title>
+    <link rel="stylesheet" href="{% static '/styles/styles.css' %}">
+</head>
+
+<body>
+
+<header>
+    <div><img class="header_logo" src="{% static '/images/logo-grupo-Typsa.png' %}" alt="typsa logo"></div>
+    <h1 class="header_text">GIS</h1>
+    <div><img class="header_logo" src="{% static '/images/MOD.jpg' %}" alt="Satoc logo"></div>
+</header>
+
+<main>
+    <div class="main_container">
+        <aside class="lateral_bar">
+            <nav class="lateral_menu">
+                <a class="lateral_menu_link" href="{% url 'index' %}">Home</a>
+            </nav>
+            <nav class="lateral_menu">
+                <a class="lateral_menu_link" href="{% url 'metadata:metadata_home' %}">Metadados</a>
+            </nav>
+            <nav class="lateral_menu">
+                <a class="lateral_menu_link" href="/admin">admin</a>
+            </nav>
+        </aside>
+        <div class="auxiliar_container">
+            <div class="subtitle">
+                <h2>Original Data Source</h2>
+            </div>
+
+            <table class="table">
+                <tbody>
+                    <tr><th>Attribute </th><th>Value</th></tr>
+                    <tr><td>Primary Key: </td><td>{{ originalfoldersource.ofs_id }}</td></tr>
+                    <tr><td>Name: </td><td>{{originalfoldersource.ofs_name}}</td></tr>
+                    <tr><td>Receipt Date: </td><td>{{ originalfoldersource.ofs_receiptdate}}</td></tr>
+                    <tr><td>Means of Receipt: </td><td>{{ originalfoldersource.ofs_meansofreceipt }}</td></tr>
+                    <tr><td>Storage Place: </td><td>{{ originalfoldersource.ofs_storageplace}}</td></tr>
+                    <tr><td>Size: </td><td>{{ originalfoldersource.ofs_size}} MB</td></tr>
+                    <tr><td>Number of feature classes: </td><td>{{ originalfoldersource.ofs_featureclass}}</td></tr>
+                    <tr><td>Format: </td><td>{{ originalfoldersource.ofs_format}}</td></tr>
+                    <tr><td>Email attached: </td><td>{{ originalfoldersource.ofs_email}}</td></tr>
+                    <tr><td>Description: </td><td>{{ originalfoldersource.ofs_description}}</td></tr>
+                </tbody>
+            </table>
+            <br>
+            <table class="table">
+                <tbody>
+                    <tr><th colspan="3">{{ originalfoldersource.ofs_name }} basic pipeline</th></tr>
+                    <tr>
+                        <th>Original File Name</th>
+                        <th>Final Feature Class</th>
+                        <th>Final Database</th>
+                      </tr>
+                     
+                    {% for filename in finalfilename %}
+                    <tr>   
+                        <td>{{ filename.ffn_ofn}}</td>
+                        <td>{{ filename.ffn_featureclass}}</td>
+                            {% if filename.ffn_fdb %}
+                                <td>{{ filename.ffn_fdb}}</td>
+                            {% else %}
+                                <td>-----</td>
+                            {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <input type="reset" onclick="history.back()" value="Back" class="selector_button">
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>Developed in Django by Maza</p>
+</footer>
+
+</body>

@@ -22,11 +22,10 @@
                 <a class="lateral_menu_link" href="{% url 'index' %}">Home</a>
             </nav>
             <nav class="lateral_menu">
-                <a class="lateral_menu_link" href="">Metadados</a>
-                <a class="lateral_menu_link" href="">Sub-metadados mais alongados</a>
+                <a class="lateral_menu_link" href="{% url 'metadata:metadata_home' %}">Metadados</a>
             </nav>
             <nav class="lateral_menu">
-                <a class="lateral_menu_link" href="">admin</a>
+                <a class="lateral_menu_link" href="/admin">admin</a>
             </nav>
         </aside>
         <div class="auxiliar_container">

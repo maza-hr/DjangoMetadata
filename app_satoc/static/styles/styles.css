@@ -98,3 +98,32 @@ main{
   color: var(--softgrey-color);
   padding: 4px 20px 2px 0px;
 }
+
+
+/* Metadata page */
+.selector{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 0px 0px 0px;
+
+}
+
+.selector_button{
+  
+  border: 1px solid var(--softblack);
+  background-color: var(--softgrey-color);
+  color: var(--hardgrey);
+  text-align: center;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.selector_button:hover{
+  background-color: var(--softgrey-colorhoover);
+}
+
+
+

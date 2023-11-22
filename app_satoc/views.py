@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.http.response import JsonResponse
+from app_satoc.models import OriginalFolderSource, OriginalFileName, FinalFileName
 
 
 # from .forms import Form_FinalFileName
@@ -14,3 +15,43 @@ def index(request):
 
 def metadata_home(request):
     return render(request, 'app_satoc/metadata_home.html')
+
+def finalfeaturename(request):
+    return render(request, 'app_satoc/finalfeaturename.html')
+
+
+### VIEWS FOR ORIGINAL FOLDER SOURCE
+
+class List_OriginalFolderSource(ListView):
+    model = OriginalFolderSource
+    queryset = OriginalFolderSource.objects.all()
+
+class Detail_OriginalFolderSource(DetailView):
+    queryset = OriginalFolderSource.objects.all()
+    fields = '__all__'
+    success_url = reverse_lazy('metadata:detail')
+
+
+def Detail_OFS2(request, pk):
+       originalfoldersource = get_object_or_404(OriginalFolderSource, ofs_id=pk)
+       originalfilename = OriginalFileName.objects.filter(ofn_ofs=pk)
+       
+       context = {
+              'originalfoldersource': originalfoldersource,
+               'originalfilename': originalfilename
+       }
+       return render(request, 'app_satoc/teste.html', context)
+
+def Detail_OFS(request, pk):
+    originalfoldersource = get_object_or_404(OriginalFolderSource, ofs_id=pk)
+    finalfilename = FinalFileName.objects.filter(ffn_ofs=pk).select_related('ffn_ofn','ffn_fdb')
+    
+    print(finalfilename[0].ffn_ofn)
+    
+    context = {
+        'originalfoldersource': originalfoldersource,
+        'finalfilename': finalfilename
+        }
+
+    return render(request, 'app_satoc/teste.html', context)
+
