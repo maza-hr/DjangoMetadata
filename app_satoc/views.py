@@ -10,7 +10,7 @@ from django.http.response import JsonResponse
 # from rest_framework.permissions import IsAuthenticated
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'shared/index.html')
 
 def metadata_home(request):
     return render(request, 'app_satoc/metadata_home.html')

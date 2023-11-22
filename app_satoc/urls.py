@@ -6,5 +6,5 @@ app_name = 'metadata'
 
 urlpatterns=[
     ## METADATA HOME PAGE
-    path('', metadata_home, name='metadata_home.html'),
+    path('', metadata_home, name='metadata_home'),
 ]
