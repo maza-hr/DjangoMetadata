@@ -9,6 +9,6 @@ urlpatterns=[
     path('', metadata_home, name='metadata_home'),
     path('finalfeaturename', finalfeaturename, name='finalfeaturename'),
     path('ofs-list/', views.List_OriginalFolderSource.as_view(), name='ofs-list'),
-    path('ofs-detail/<int:pk>/', views.Detail_OriginalFolderSource.as_view(), name='ofs-detail'),
+    path('ofs-detail/<int:pk>/', Detail_OFS, name='ofs-detail'),
     path('teste/<int:pk>/', Detail_OFS, name='ofs-detail2'),
 ]

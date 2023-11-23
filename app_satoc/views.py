@@ -16,10 +16,6 @@ def index(request):
 def metadata_home(request):
     return render(request, 'app_satoc/metadata_home.html')
 
-def finalfeaturename(request):
-    return render(request, 'app_satoc/finalfeaturename.html')
-
-
 ### VIEWS FOR ORIGINAL FOLDER SOURCE
 
 class List_OriginalFolderSource(ListView):
@@ -30,17 +26,6 @@ class Detail_OriginalFolderSource(DetailView):
     queryset = OriginalFolderSource.objects.all()
     fields = '__all__'
     success_url = reverse_lazy('metadata:detail')
-
-
-def Detail_OFS2(request, pk):
-       originalfoldersource = get_object_or_404(OriginalFolderSource, ofs_id=pk)
-       originalfilename = OriginalFileName.objects.filter(ofn_ofs=pk)
-       
-       context = {
-              'originalfoldersource': originalfoldersource,
-               'originalfilename': originalfilename
-       }
-       return render(request, 'app_satoc/teste.html', context)
 
 def Detail_OFS(request, pk):
     originalfoldersource = get_object_or_404(OriginalFolderSource, ofs_id=pk)
@@ -53,5 +38,15 @@ def Detail_OFS(request, pk):
         'finalfilename': finalfilename
         }
 
-    return render(request, 'app_satoc/teste.html', context)
+    return render(request, 'app_satoc/originalfoldersource_detail.html', context)
 
+### VIEWS FOR ORIGINAL FILE NAME
+
+
+### VIEWS FOR FINAL FEATURE NAME
+def finalfeaturename(request):
+    return render(request, 'app_satoc/finalfeaturename.html')
+
+### VIEWS FOR FINAL FEATURE DATASET
+
+### ABOUT

@@ -84,9 +84,9 @@ main{
 }
 
 .cover_image{
-  width: 100%;
+  width: 80%;
+  align-items: center;
 }
-
 
 .footer{
   position: fixed;
@@ -98,7 +98,6 @@ main{
   color: var(--softgrey-color);
   padding: 4px 20px 2px 0px;
 }
-
 
 /* Metadata page */
 .selector{
