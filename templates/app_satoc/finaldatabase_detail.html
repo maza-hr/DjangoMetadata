@@ -1,0 +1,46 @@
+{% extends "shared/base_generic.html" %}
+{% load static %}
+
+
+{% block title %}<title>Satoc - FDB- Detail</title>{% endblock %}
+
+{% block subtitle %}<h2>Final Database</h2>{% endblock %}
+
+{% block content %}
+
+        <table class="table_main">
+            <tbody>
+                <tr><th>Attribute</th><th>Value</th></tr>
+                <tr><td>Primary Key</td><td>{{ finaldatabase.fdb_id }}</td></tr>
+                <tr><td>Database Name</td><td>{{ finaldatabase.fdb_database_name }}</td></tr>
+                <tr><td>Storage place</td><td>{{ finaldatabase.fdb_storageplace }}</td></tr>
+                <tr><td>Format</td><td>{{ finaldatabase.fdb_format }}</td></tr>
+                <tr><td>Active</td><td>{{ finaldatabase.fdb_database_active }}</td></tr>
+                <tr><td>Webportal</td><td>{{ finaldatabase.fdb_webportal_active }}</td></tr>
+                <tr><td>Moved</td><td>{{ finaldatabase.fdb_moved }}</td></tr>
+                <tr><td>Description</td><td></td></tr>
+            </tbody>
+        </table>
+        <br>
+        <table class="table_auxiliar">
+            <tbody>
+                <tr><th colspan="4">{{ finaldatabase.fdb_database_name }} basic pipeline</th></tr>
+                <tr>
+                    <th class="table_source">Original Folder Source</th>
+                    <th class="table_source">Original File Name</th>
+                    <th class="table_target">Final Feature Class</th>
+                    <th class="table_target">Final Database</th>
+                </tr>
+                
+                {% for filename in finalfilename %}
+                <tr>   
+                    <td class="table_source">{{ filename.ffn_ofs}}</td>
+                    <td class="table_source">{{ filename.ffn_ofn}}</td>
+                    <td class="table_target">{{ filename.ffn_featureclass }}</td>
+                    <td class="table_target">{{ finaldatabase.fdb_database_name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}

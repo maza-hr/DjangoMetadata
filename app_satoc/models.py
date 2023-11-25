@@ -100,3 +100,17 @@ class FinalFileName(models.Model):
     def __str__(self):
         """String for representing the Model object (in Admin site etc.)"""
         return self.ffn_featureclass
+    
+
+
+### TESTE
+
+class company(models.Model):
+    company = models.CharField(max_length=100, verbose_name="Company")
+
+class Feedback(models.Model):
+    first_name = models.CharField(max_length=100, blank=True, null=True, verbose_name="First name")
+    last_name = models.CharField(max_length=100, blank=True, null=True, verbose_name="Last name")
+    email = models.EmailField(max_length = 254, blank=True, null=True)
+    company = models.ForeignKey(company, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Final Database")
+    role_job_title = models.CharField(max_length=50, blank=True, null=True, verbose_name="Role or Job Title")

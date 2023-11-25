@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-@+%ampoa(mb$z3y_92lpkue%y5_h!v0t_=qcbn7a7!!92=a46%"
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -136,3 +140,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 JQUERY_URL = False
 USE_DJANGO_JQUERY = True
+
+# Settings for email using.
+DEFAULT_FROM_EMAIL = 'henrique.ramos.maza@gmail.com'
+SERVER_EMAIL = 'whenrique.ramos.maza@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = SECRET_KEY = str(os.getenv('EMAIL_HOST_USER'))
+EMAIL_HOST_PASSWORD = SECRET_KEY = str(os.getenv('EMAIL_HOST_PASSWORD'))
+EMAIL_USE_TLS = True
+EMAIL_USE_UTL = True
+EMAIL_USE_SSL = False

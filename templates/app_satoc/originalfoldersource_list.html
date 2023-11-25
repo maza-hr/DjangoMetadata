@@ -3,34 +3,29 @@
 
 {% block title %}<title>Satoc - OFS - List</title>{% endblock %}
 
+{% block subtitle %}<h2>Original Data Source</h2>{% endblock %}
+
 {% block content %}
 
-<div class="auxiliar_container">
-    <div class="subtitle">
-        <h2>Original Data Source</h2>
-    </div>
-
-    <table class="table">
-        <tr>
-          <th>Primary Key</th>
-          <th>Name</th>
-          <th>Receipt Date</th>
-          <th>Description</th>
-          <th></th>
-        </tr>
-        {% for object in object_list %}
-            <tr>   
-                <td>{{ object.ofs_id}}</td>
-                <td><a href="{% url 'metadata:ofs-detail' pk=object.ofs_id %}">{{ object.ofs_name}}</a></td>
-                <td>{{ object.ofs_receiptdate}}</td>
-                <td>{{ object.ofs_description}}</td>
-                <td ><a href="{% url 'metadata:ofs-detail' pk=object.ofs_id %}">Visualize</a></td>
+<table class="table_main">
+        <tbody>
+            <tr>
+            <th>Primary Key</th>
+            <th>Name</th>
+            <th>Receipt Date</th>
+            <th>Description</th>
+            <th></th>
             </tr>
-        {% endfor %}
+            {% for object in object_list %}
+                <tr>   
+                    <td>{{ object.ofs_id}}</td>
+                    <td>{{ object.ofs_name}}</a></td>
+                    <td>{{ object.ofs_receiptdate}}</td>
+                    <td>{{ object.ofs_description}}</td>
+                    <td ><a href="{% url 'metadata:ofs-detail' pk=object.ofs_id %}">View</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
                 <!--  -->
-    <br>
-    <input type="reset" onclick="history.back()" value="Back" class="selector_button">
-</div>
-
 {% endblock %}

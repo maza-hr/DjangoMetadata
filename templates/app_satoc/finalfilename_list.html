@@ -1,0 +1,31 @@
+{% extends "shared/base_generic.html" %}
+{% load static %}
+
+{% block title %}<title>Satoc - FFN - List</title>{% endblock %}
+
+{% block subtitle %}<h2>Final File Name</h2>{% endblock %}
+
+{% block content %}
+
+    <table class="table_main">
+        <tbody>
+            <tr>
+            <th>Primary Key</th>
+            <th>Feature Class Name</th>
+            <th>Feature Dataset</th>
+            <th>Description</th>
+            <th></th>
+            </tr>
+            {% for object in object_list %}
+                <tr>   
+                    <td>{{ object.ffn_id}}</td>
+                    <td>{{ object.ffn_featureclass}}</a></td>
+                    <td>{{ object.ffn_featuredataset}}</td>
+                    <td>{{ object.ffn_description}}</td>
+                    <td ><a href="{% url 'metadata:ffn-detail' pk=object.ffn_id %}">View</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

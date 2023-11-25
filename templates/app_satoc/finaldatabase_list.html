@@ -1,0 +1,40 @@
+{% extends "shared/base_generic.html" %}
+{% load static %}
+
+{% block title %}<title>Satoc - FDB - List</title>{% endblock %}
+
+{% block content %}
+
+<div class="container_workspace">
+    <div class="subcontainer">
+        <div class="table_subtitle"><h2>Final Database</h2></div>
+
+        <table class="table_main">
+            <tbody>
+                <tr>
+                    <th>Primary Key</th>
+                    <th>Database Name</th>
+                    <th>Database</th>
+                    <th>Webportal</th>
+                    <th>Moved</th>
+                    <th></th>
+                </tr>
+                {% for object in object_list %}
+                    <tr>   
+                        <td>{{ object.fdb_id}}</td>
+                        <td>{{ object.fdb_database_name }}</td>
+                        <td>{{ object.fdb_database_active}}</a></td>
+                        <td>{{ object.fdb_webportal_active}}</td>
+                        <td>{{ object.fdb_moved}}</td>
+                        <td ><a href="{% url 'metadata:fdb-detail' pk=object.fdb_id %}">View</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+                    <!--  -->
+        <br>
+    </div>
+    <input type="reset" onclick="history.back()" value="Back" class="selector_button">
+</div>
+
+{% endblock %}

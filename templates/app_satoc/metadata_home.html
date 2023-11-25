@@ -1,22 +1,23 @@
 {% extends "shared/base_generic.html" %}
+
 {% load static %}
 
 {% block title %}<title>Satoc - Metadata</title>{% endblock %}
 
 {% block content %}
-<div class="auxiliar_container">
-    <div class="subtitle">
-        <h2>Metadata</h2>
+
+<div class="container_workspace">
+    <div class="subcontainer">
+        <div class="container_subtitle"><h2>Metadata</h2></div>
+        <img class="container_workspace_image" src="{% static '/images/local_library_model_uml.png' %}" alt="Cover image">
+        <p>
+            <!-- texto explicando -->
+            
+        </p>
     </div>
-    <img class="cover_image" src="{% static '/images/local_library_model_uml.png' %}" alt="Cover image">
-    <br/>
-    <section class="selector">
-        <div><a class="selector_button" href="{% url 'metadata:ofs-list' %}">Original Data Source</a></div>
-        <div><a class="selector_button" href="">Original File Name</a></div>
-        <div><a class="selector_button" href="{% url 'metadata:finalfeaturename' %}">Final Feature Class</a></div>
-        <div><a class="selector_button" href="">Final Feature Dataset</a></div>
-        <div><a class="selector_button" href="">About</a></div>
-    </section>
 </div>
 
 {% endblock %}
+
+
+
