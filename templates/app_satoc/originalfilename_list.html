@@ -6,28 +6,24 @@
 {% block subtitle %}<h2>Original File Name</h2>{% endblock %}
 
 {% block content %}
-
-    <table class="table_main">
-        <tbody>
-            <tr>
-            <th>Primary Key</th>
-            <th>Feature Class Name</th>
-            <th>Feature dataset</th>
-            <th>Coordinate System</th>
-            <th>Description</th>
-            <th></th>
-            </tr>
-            {% for object in object_list %}
-                <tr>   
-                    <td>{{ object.ofn_id}}</td>
-                    <td>{{ object.ofn_featureclass}}</a></td>
-                    <td>{{ object.ofn_featuredataset}}</td>
-                    <td>{{ object.ofn_epsg }}</td>
-                    <td>{{ object.ofn_description}}</td>
-                    <td ><a href="{% url 'metadata:ofn-detail' pk=object.ofn_id %}">View</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+<table class="table_main">
+    <tbody>
+        <tr>
+        <th>Primary Key</th>
+        <th>Feature Class Name</th>
+        <th>Feature dataset</th>
+        <th>Coordinate System</th>
+        <th>Description</th>
+        </tr>
+        {% for object in object_list %}
+        <tr class="clickable" onclick="window.location='{% url 'metadata:ofn-detail' pk=object.ofn_id %}'">   
+            <td>{{ object.ofn_id}}</td>
+            <td>{{ object.ofn_featureclass}}</a></td>
+            <td>{{ object.ofn_featuredataset}}</td>
+            <td>{{ object.ofn_epsg }}</td>
+            <td>{{ object.ofn_description}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

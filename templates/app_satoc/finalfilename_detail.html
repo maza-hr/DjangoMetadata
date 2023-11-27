@@ -7,46 +7,42 @@
 {% block subtitle %}<h2>Final File Name</h2>{% endblock %}
 
 {% block content %}
-
-
-
-        <table class="table_main" >
-            <tbody>
-                <tr><th>Attribute </th><th>Value</th></tr>
-                <tr><td class="table_left_menu">Primary Key: </td><td>{{ finalfilename.ffn_id }}</td></tr>
-                <tr><td class="table_left_menu">Feature class: </td><td>{{ finalfilename.ffn_featureclass }}</td></tr>
-                <tr><td class="table_left_menu">Feature dataset: </td><td>{{ finalfilename.ffn_featuredataset }}</td></tr>
-                <tr><td class="table_left_menu">Meets SDSFIE Standards: </td>
-                    {% if  finalfilename.ffn_standard_sdsfie %}
-                        <td>Yes</td>
-                    {% else %}
-                        <td>No</td>
-                    {% endif %}
-                    </tr>
-                <tr><td class="table_left_menu">Coordinate system: </td><td>{{ finalfilename.ffn_epsg }}</td></tr>
-                <tr><td class="table_left_menu">Format: </td><td>{{ finalfilename.ffn_format }}</td></tr>
-                <tr><td class="table_left_menu">Type: </td><td>{{ finalfilename.ffn_type }}</td></tr>
-                <tr><td class="table_left_menu">Attached photos: </td><td></td></tr>
-                <tr><td class="table_left_menu">Description: </td><td>{{ finalfilename.ffn_description }}</td></tr>
-            </tbody>
-        </table>
-    <br>
-    <table class="table_auxiliar">
-        <tbody>
-            <tr><th colspan="4">{{ finalfilename.ffn_featureclass }} basic pipeline</th></tr>
-            <tr>
-                <th class="table_source">Original Folder Source</th>
-                <th class="table_source">Original File Name</th>
-                <th class="table_target">Final File Name</th>
-                <th class="table_target">Final Database</th>
-            </tr>
-            <tr>   
-                <td class="table_source">{{ finalfilename.ffn_ofs}}</td>
-                <td class="table_source">{{ finalfilename.ffn_ofn }}</td>
-                <td class="table_target">{{ finalfilename.ffn_featureclass }}</td>
-                <td class="table_target">{{ finalfilename.ffn_fdb}}</td>
-            </tr>
-        </tbody>
-    </table>
-
+<table class="table_main" >
+    <tbody>
+        <tr><th>Attribute </th><th>Value</th></tr>
+        <tr><td class="table_left_menu">Primary Key: </td><td>{{ finalfilename.ffn_id }}</td></tr>
+        <tr><td class="table_left_menu">Feature class: </td><td>{{ finalfilename.ffn_featureclass }}</td></tr>
+        <tr><td class="table_left_menu">Feature dataset: </td><td>{{ finalfilename.ffn_featuredataset }}</td></tr>
+        <tr><td class="table_left_menu">Meets SDSFIE Standards: </td>
+        {% if  finalfilename.ffn_standard_sdsfie %}
+            <td>Yes</td>
+        {% else %}
+            <td>No</td>
+        {% endif %}
+        </tr>
+        <tr><td class="table_left_menu">Coordinate system: </td><td>{{ finalfilename.ffn_epsg }}</td></tr>
+        <tr><td class="table_left_menu">Format: </td><td>{{ finalfilename.ffn_format }}</td></tr>
+        <tr><td class="table_left_menu">Type: </td><td>{{ finalfilename.ffn_type }}</td></tr>
+        <tr><td class="table_left_menu">Attached photos: </td><td></td></tr>
+        <tr><td class="table_left_menu">Description: </td><td>{{ finalfilename.ffn_description }}</td></tr>
+    </tbody>
+</table>
+<br>
+<table class="table_auxiliar">
+    <tbody>
+        <tr><th colspan="4">{{ finalfilename.ffn_featureclass }} basic pipeline</th></tr>
+        <tr>
+            <th class="table_auxiliar_head">Original Folder Source</th>
+            <th class="table_auxiliar_head">Original File Name</th>
+            <th class="table_auxiliar_head">Final File Name</th>
+            <th class="table_auxiliar_head">Final Database</th>
+        </tr>
+        <tr class="teste">   
+            <td class="table_source">{{ finalfilename.ffn_ofs}}</td>
+            <td class="table_source">{{ finalfilename.ffn_ofn }}</td>
+            <td class="table_target">{{ finalfilename.ffn_featureclass }}</td>
+            <td class="table_target">{{ finalfilename.ffn_fdb}}</td>
+        </tr>
+    </tbody>
+</table>
 {% endblock %}

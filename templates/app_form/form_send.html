@@ -1,0 +1,22 @@
+{% extends "app_form/base_generic_form.html" %}
+{% load static %}
+
+{% block title %} <title>ARCGIS Request Form</title>{% endblock %}
+
+{% block content %}
+    <div class="container_form">
+        <div class="container_form_title"><h2>Arcgis Typsa-Satoc</h2></div>
+        <div class="container_form_title"><h3>User Form Request</h3></div>
+        <div class="container_form_subtitle"><h4>Fill the fields bellow</h4></div>
+        <div class="container_form">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="container_button_form">
+                    <button class="button_form" type="submit">Send</button>
+                    <a class="button_form" href="{% url 'index' %}"><div type="submit">Return Home</div></a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

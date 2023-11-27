@@ -3,25 +3,21 @@
 
 {% block content %}
 
-<div class="container_workspace">
-    <div class="subcontainer">
-        <div class="container_subtitle"><h2>Site for Metadata</h2></div>
-        <img class="container_workspace_image" src="{% static '/images/BorneOfTheLand5.png' %}" alt="Cover image">
-        <br>
-        <div class="container_workspace_text">
- 
-            <p>This website is a prototype being developed to manage data-related information. It encompasses the structure of the pipeline, representing the flow of data processing from collection to making it available to development teams.</p>
-
-            <p>Its primary goal is to record and oversee all data manipulations, highlighting transformation and organization stages, and any modifications made before they are used by development teams in their projects.</p>
-            
-            <p>As a secondary objective, it serves as a laboratory to experiment with open-source tools for metadata registration, manipulation, and storage routines, aiming to expand these practices to other departments.</p>
-            
-            <ul>Next steps:</ul>
-            
-            <li>Adapt database models to fully comply with the practices defined in ISO 19115:2014 (International) and the MGB 2.0 profile (Brazil).</li>
-            <li>Include functionality for locating external data.</li>
-        </div>
-    </div>
+<div class="container_workspace_subtitle"><h2>Site for Metadata</h2></div>
+<br>
+<img class="container_workspace_image" src="{% static '/images/BorneOfTheLand5.png' %}" alt="Cover image">
+<br>
+<div class="container_workspace_text">
+    <p>This website is a prototype being developed to manage data-related information. It encompasses the structure of the pipeline, representing the flow of data processing from collection to making it available to development teams.</p>
+    <p>Its primary goal is to record and oversee all data manipulations, highlighting transformation and organization stages, and any modifications made before they are used by development teams in their projects.</p>
+    <p>As a secondary objective, it serves as a laboratory to experiment with open-source tools for metadata registration, manipulation, and storage routines, aiming to expand these practices to other departments.</p>            
+    <br>
+    <ul aria-label="Next steps:">
+        <li>Adapt database models with ISO 19115:2014 and MGB 2.0 profile.</li>
+        <li>Include functionality for locating external data.</li>
+    </ul>
 </div>
+
+
 
 {% endblock %}

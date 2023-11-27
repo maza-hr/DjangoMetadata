@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %} {% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/styles/styles.css' %}">
+</head>
+
+
+<body>
+<header>
+    <div class="header_container">
+        <div><img class="header_image" src="{% static '/images/logo-grupo-Typsa.png' %}" alt="typsa logo"></div>
+        <div><h1 class="header_text">GIS</h1></div>
+        <div><img class="header_image" src="{% static '/images/MOD.jpg' %}" alt="Satoc logo"></div>
+    </div>
+</header>
+
+<main>
+
+    {% block content %} {% endblock %}
+
+</main>
+
+<footer>
+    <p>Developed in Django by Maza</p>
+</footer>
+
+</body>
+</html>

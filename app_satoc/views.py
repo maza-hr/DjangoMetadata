@@ -121,11 +121,11 @@ def feedback_view(request):
                     send_mail(subject, message, from_email, to_email)
                 except BadHeaderError:
                     return HttpResponse("Invalid header found.")
-                return render(request, 'app_form/sucesso.html')
+                return render(request, 'app_form/form_success.html')
 
             else:
                 return HttpResponse("Make sure all fields are entered and valid.")
     else:
         form = FeedbackForm()
 
-    return render(request, 'app_form/formulario.html', {'form': form})  # Renderiza o formulário HTML
+    return render(request, 'app_form/form_send.html', {'form': form})  # Renderiza o formulário HTML

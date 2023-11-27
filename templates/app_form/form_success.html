@@ -1,0 +1,22 @@
+{% extends "app_form/base_generic_form.html" %}
+{% load static %}
+
+{% block title %} <title>ARCGIS Request Form</title>{% endblock %}
+
+{% block content %}
+    <div class="container_form">
+        <div class="container_form_title"><h2>Your request has been sent successfuly</h2></div>
+        <div class="container_form_title"><h3>Aguarde seu usuario e senha no e-mail.</h3></div>
+        <div class="container_form_subtitle"><h4>Caso não o receba em 24 horas, entre em contato conosco</h4></div>
+        <div class="container_form">
+            <form method="get">
+                <div class="container_button_form">
+                    <a class="button_form" href="{% url 'index' %}"><div type="submit">Return Home</div></a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+

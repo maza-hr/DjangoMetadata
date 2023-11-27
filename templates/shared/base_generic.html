@@ -29,32 +29,34 @@
                     {% if '/metadata' in request.path %}                
                         <a href="{% url 'metadata:ofs-list' %}"><li class="navbar_item_external">Original Data Source</li></a>
                         <a href="{% url 'metadata:ofn-list' %}"><li class="navbar_item_external">Original File Name</li></a>
-                        <a href="{% url 'metadata:ffn-list' %}"><li class="navbar_item_external">Final Feature Class</li></a>
-                        <a href="{% url 'metadata:fdb-list' %}"><li class="navbar_item_external">Final Feature Dataset</li></a>
+                        <a href="{% url 'metadata:ffn-list' %}"><li class="navbar_item_external">Final File Class</li></a>
+                        <a href="{% url 'metadata:fdb-list' %}"><li class="navbar_item_external">Final Database</li></a>
                         <a href="{% url 'metadata:metadata_about' %}"><li class="navbar_item_external">About</li></a>
                     {% endif %}
-
-                   
 
                 <a href="{% url 'metadata:form' %}"><li class="navbar_item">Form</li></a>
                 <a href="/admin"><li class="navbar_item">Admin</li></a>
             </ul>
         </nav>
         
-        <div class="container_workspace">
-            <div class="subcontainer">
-                <div class="table_subtitle">{% block subtitle %}   {% endblock %}</div>
+        <div class="workspace">
+            <div class="container_workspace">
+                <div class="container_workspace_subtitle">{% block subtitle %}   {% endblock %}</div>
                     <!-- General block for using with the pages -->
                     {% block content %} {% endblock %}
-                </div>
+
+                    {% if '/metadata/o' in request.path or '/metadata/f' in request.path  %}  
+                        <input type="reset" onclick="history.back()" value="Back" class="button">
+                    {% endif %}    
+            </div>
             <br>
-            <input type="reset" onclick="history.back()" value="Back" class="button">
         </div>
     </div>
 </main>
 
 <footer>
-    <p>Developed in Django by Maza</p>
+    <p class="footer_text">Developed in Django</p>
+    <div><img class="footer_image" src="{% static '/images/MOD.jpg' %}" alt="Satoc logo"></div>
 </footer>
 
 </body>

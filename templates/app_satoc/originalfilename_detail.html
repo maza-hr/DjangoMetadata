@@ -7,45 +7,42 @@
 {% block subtitle %}<h2>Original File Name</h2>{% endblock %}
 
 {% block content %}
-
-        <table class="table_main">
-            <tbody>
-                <tr><th>Attribute </th><th>Value</th></tr>
-                <tr><td>Primary Key: </td><td>{{ originalfilename.ofn_id }}</td></tr>
-                <tr><td>Feature class: </td><td>{{originalfilename.ofn_featureclass}}</td></tr>
-                <tr><td>Feature dataset: </td><td>{{ originalfilename.ofn_featuredataset}}</td></tr>
-                <tr><td>Attributes: </td><td>{{ originalfilename.ofn_attributes }}</td></tr>
-                <tr><td>Coordinate system: </td><td>{{ originalfilename.ofn_epsg }}</td></tr>
-                <tr><td>Format: </td><td>{{ originalfilename.ofn_format }}</td></tr>
-                <tr><td>Type: </td><td>{{ originalfilename.ofn_type }}</td></tr>
-                <tr><td>Attached photos: </td><td>{{ originalfilename.ofn_attached_photos }}</td></tr>
-                <tr><td>Description: </td><td>{{ originalfilename.ofn_description}}</td></tr>
-            </tbody>
-        </table>
-        <br>
-        <table class="table_auxiliar">
-            <tbody>
-                <tr><th colspan="4">{{ originalfilename.ofn_featureclass }} basic pipeline</th></tr>
-                <tr>
-                    <th class="table_source">Original Folder Source</th>
-                    <th class="table_source">Original File Name</th>
-                    <th class="table_target">Final Feature Class</th>
-                    <th class="table_target">Final Database</th>
-                </tr>
-                
-                {% for filename in finalfilename %}
-                <tr>   
-                    <td class="table_source">{{ filename.ffn_ofs}}</td>
-                    <td class="table_source">{{ originalfilename.ofn_featureclass }}</td>
-                    <td class="table_target">{{ filename.ffn_featureclass}}</td>
-                        {% if filename.ffn_fdb %}
-                            <td class="table_target">{{ filename.ffn_fdb}}</td>
-                        {% else %}
-                            <td class="table_target">-----</td>
-                        {% endif %}
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
+<table class="table_main">
+    <tbody>
+        <tr><th>Attribute </th><th>Value</th></tr>
+        <tr><td>Primary Key: </td><td>{{ originalfilename.ofn_id }}</td></tr>
+        <tr><td>Feature class: </td><td>{{originalfilename.ofn_featureclass}}</td></tr>
+        <tr><td>Feature dataset: </td><td>{{ originalfilename.ofn_featuredataset}}</td></tr>
+        <tr><td>Attributes: </td><td>{{ originalfilename.ofn_attributes }}</td></tr>
+        <tr><td>Coordinate system: </td><td>{{ originalfilename.ofn_epsg }}</td></tr>
+        <tr><td>Format: </td><td>{{ originalfilename.ofn_format }}</td></tr>
+        <tr><td>Type: </td><td>{{ originalfilename.ofn_type }}</td></tr>
+        <tr><td>Attached photos: </td><td>{{ originalfilename.ofn_attached_photos }}</td></tr>
+        <tr><td>Description: </td><td>{{ originalfilename.ofn_description}}</td></tr>
+    </tbody>
+</table>
+<br>
+<table class="table_auxiliar">
+    <tbody>
+        <tr><th colspan="4">{{ originalfilename.ofn_featureclass }} basic pipeline</th></tr>
+        <tr>
+            <th class="table_auxiliar_head">Original Folder Source</th>
+            <th class="table_auxiliar_head">Original File Name</th>
+            <th class="table_auxiliar_head">Final Feature Class</th>
+            <th class="table_auxiliar_head">Final Database</th>
+        </tr>        
+        {% for filename in finalfilename %}
+        <tr>   
+            <td class="table_source">{{ filename.ffn_ofs}}</td>
+            <td class="table_source">{{ originalfilename.ofn_featureclass }}</td>
+            <td class="table_target">{{ filename.ffn_featureclass}}</td>
+            {% if filename.ffn_fdb %}
+                <td class="table_target">{{ filename.ffn_fdb}}</td>
+            {% else %}
+                <td class="table_target">-----</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
